@@ -11,7 +11,7 @@ import Defaults
 public extension Defaults.Keys {
     // MARK: Settings
     
-    static let allowMistakes = Key<Bool>("allowMistakes", default: true)
+    static let allowMistakes = Key<Bool>("allowMistakes", default: false)
     static let suggestionStrength = Key<Board.SuggestionStrength>("suggestionStrength", default: .none)
     
     // MARK: Options

@@ -52,7 +52,7 @@
 			<key>Key</key>
 			<string>allowMistakes</string>
 			<key>DefaultValue</key>
-			<true/>
+			<false/>
 		</dict>
 	</array>
 </dict>
