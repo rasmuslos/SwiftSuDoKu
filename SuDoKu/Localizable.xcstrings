@@ -313,7 +313,7 @@
               "one" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "%lld EInfache Puzzle gelöst"
+                  "value" : "%lld Einfache Puzzle gelöst"
                 }
               },
               "other" : {
@@ -606,7 +606,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Wenn dies eingeschalt ist können falsche Eingaben gemacht werden"
+            "value" : "Wenn dies eingeschaltet ist, können falsche Eingaben gemacht werden"
           }
         },
         "en" : {
@@ -622,13 +622,13 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "SwiftSuDoKu"
+            "value" : "SuDoKu"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "SwiftSuDoKu"
+            "value" : "SuDoKu"
           }
         }
       }
@@ -660,23 +660,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "If you select \"full\" suggestions will check the current row, column and square. Selecting \"square\" onyl checks the current square. \"none\" will disable suggestions"
-          }
-        }
-      }
-    },
-    "setup.text" : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Willkommne zu noch einer SuDoKu app"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Welcome to jet another SuDoKu app"
+            "value" : "If you select \"Full\", suggestions will check the current row, column, and square. Selecting \"Square\" only checks the current square. \"None\" disables suggestions"
           }
         }
       }
@@ -718,7 +702,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Du has das Puzzle erfolgreich abgeschlossen, gute Arbeit!"
+            "value" : "Du hast das Puzzle erfolgreich abgeschlossen, gute Arbeit!"
           }
         },
         "en" : {

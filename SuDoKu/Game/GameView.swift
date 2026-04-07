@@ -53,8 +53,9 @@ struct GameView: View {
             GridView(game: game, selectedSpace: selectedSpaceProxy, animation: $animation)
                 .offset(x: shake ? 30 : 0)
             
+            Spacer(minLength: 40)
+            
             NumberView(game: game, shake: $shake, selectedSpace: selectedSpaceProxy, animation: $animation)
-                .padding(.top, 40)
             
             Spacer()
             

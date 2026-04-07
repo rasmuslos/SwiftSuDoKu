@@ -17,6 +17,7 @@
 		3A8A7A272B7EA86700732A44 /* Board+Solve.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A7A262B7EA86700732A44 /* Board+Solve.swift */; };
 		3A8A7A292B7EB31B00732A44 /* NineXNineBoardTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A7A282B7EB31B00732A44 /* NineXNineBoardTest.swift */; };
 		3A8A7A2B2B7EB32500732A44 /* FourXFourBoardTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A7A2A2B7EB32500732A44 /* FourXFourBoardTest.swift */; };
+		3AA91BE72F60988500615295 /* SuDoKu.icon in Resources */ = {isa = PBXBuildFile; fileRef = 3AA91BE62F60988500615295 /* SuDoKu.icon */; };
 		3AB6D0FB2B7F90BA007C7FA3 /* FailedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB6D0FA2B7F90BA007C7FA3 /* FailedView.swift */; };
 		3AB6D0FD2B7F93C9007C7FA3 /* Game+Interact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB6D0FC2B7F93C9007C7FA3 /* Game+Interact.swift */; };
 		3AC0CC782B7F682B006392BA /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3AC0CC772B7F682B006392BA /* Settings.bundle */; };
@@ -62,6 +63,7 @@
 		3A8A7A262B7EA86700732A44 /* Board+Solve.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Board+Solve.swift"; sourceTree = "<group>"; };
 		3A8A7A282B7EB31B00732A44 /* NineXNineBoardTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NineXNineBoardTest.swift; sourceTree = "<group>"; };
 		3A8A7A2A2B7EB32500732A44 /* FourXFourBoardTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourXFourBoardTest.swift; sourceTree = "<group>"; };
+		3AA91BE62F60988500615295 /* SuDoKu.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = SuDoKu.icon; sourceTree = "<group>"; };
 		3AB6D0FA2B7F90BA007C7FA3 /* FailedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FailedView.swift; sourceTree = "<group>"; };
 		3AB6D0FC2B7F93C9007C7FA3 /* Game+Interact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Game+Interact.swift"; sourceTree = "<group>"; };
 		3AC0CC772B7F682B006392BA /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				3A16875B2B7F57A900284FD3 /* README.md */,
+				3AA91BE62F60988500615295 /* SuDoKu.icon */,
 				3AD6B0172B7E4B200047E28E /* SuDoKu */,
 				3AD6B02B2B7E4D4B0047E28E /* SuDoKuTests */,
 				3AD6B0162B7E4B200047E28E /* Products */,
@@ -260,7 +263,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1520;
-				LastUpgradeCheck = 1520;
+				LastUpgradeCheck = 2630;
 				TargetAttributes = {
 					3AD6B0142B7E4B1F0047E28E = {
 						CreatedOnToolsVersion = 15.2;
@@ -300,6 +303,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A8A7A252B7EA55700732A44 /* Localizable.xcstrings in Resources */,
+				3AA91BE72F60988500615295 /* SuDoKu.icon in Resources */,
 				3AC0CC782B7F682B006392BA /* Settings.bundle in Resources */,
 				3AD6B01D2B7E4B210047E28E /* Assets.xcassets in Resources */,
 			);
@@ -393,6 +397,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -423,6 +428,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = N8AA4S3S96;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
@@ -446,6 +452,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -456,6 +463,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -486,6 +494,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = N8AA4S3S96;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
@@ -502,6 +511,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -511,12 +521,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = SuDoKu;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = DEVELOPMENT;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = N8AA4S3S96;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SuDoKu/Info.plist;
@@ -527,6 +536,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -548,12 +558,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = SuDoKu;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = DEVELOPMENT;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = N8AA4S3S96;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SuDoKu/Info.plist;
@@ -564,6 +573,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -587,7 +597,6 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = N8AA4S3S96;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = io.rfk.SuDoKuTests;
@@ -605,7 +614,6 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = N8AA4S3S96;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = io.rfk.SuDoKuTests;

@@ -64,7 +64,7 @@ extension PlayView {
                         }
                     }
                     
-                    ToolbarItem(placement: .topBarTrailing) {
+                    ToolbarItem(placement: .topBarLeading) {
                         Menu {
                             ForEach(Board.Difficulty.allCases, id: \.hashValue) { difficulty in
                                 Button {

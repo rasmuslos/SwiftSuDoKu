@@ -12,7 +12,7 @@
 			<key>Title</key>
 			<string>Suggestions</string>
 			<key>FooterText</key>
-			<string>If you select &quot;full&quot; suggestions will check the current row, column and square. Selecting &quot;square&quot; onyl checks the current square. &quot;none&quot; will disable suggestions</string>
+			<string>If you select &quot;Full&quot;, suggestions will check the current row, column, and square. Selecting &quot;Square&quot; only checks the current square. &quot;None&quot; disables suggestions</string>
 		</dict>
 		<dict>
 			<key>Type</key>
@@ -22,7 +22,7 @@
 			<key>Key</key>
 			<string>suggestionStrength</string>
 			<key>DefaultValue</key>
-			<string>2</string>
+			<string>0</string>
 			<key>Titles</key>
 			<array>
 				<string>None</string>
@@ -52,7 +52,7 @@
 			<key>Key</key>
 			<string>allowMistakes</string>
 			<key>DefaultValue</key>
-			<false/>
+			<true/>
 		</dict>
 	</array>
 </dict>

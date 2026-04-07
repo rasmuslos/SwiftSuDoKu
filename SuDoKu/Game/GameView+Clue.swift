@@ -52,14 +52,14 @@ extension GameView {
                     blockUI = false
                 }
             } label: {
-                if allowMistakes {
+                if false && allowMistakes {
                     Text("clue.disabled")
                 } else {
                     Label("clue", systemImage: "questionmark.circle.fill")
                         .foregroundStyle(.secondary)
                 }
             }
-            .disabled(allowMistakes)
+            .disabled(false && allowMistakes)
         }
     }
 }

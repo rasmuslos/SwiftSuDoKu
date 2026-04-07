@@ -17,29 +17,32 @@ struct SetupView: View {
     @State private var setupSheetPresented = false
     
     var body: some View {
-        VStack {
+        VStack(spacing: 0) {
             Spacer()
             
             Image("SuDoKu")
                 .resizable()
                 .aspectRatio(1, contentMode: .fit)
                 .frame(width: 100)
-                .padding(.bottom, 25)
+                .clipShape(.rect(cornerRadius: 16))
+                .padding(.bottom, 20)
             
             Text("setup.name")
-                .fontDesign(.rounded)
+                .font(.largeTitle)
+                .fontDesign(.serif)
             
-            Text("setup.text")
-                .foregroundStyle(.secondary)
-            
+            Spacer()
+        }
+        .safeAreaInset(edge: .bottom) {
             Button {
                 setupSheetPresented.toggle()
             } label: {
                 Text("setup.continue")
+                    .frame(maxWidth: .infinity)
             }
-            .padding(.top)
-            
-            Spacer()
+            .buttonStyle(.borderedProminent)
+            .controlSize(.extraLarge)
+            .padding(.horizontal, 20)
         }
         .sheet(isPresented: $setupSheetPresented) {
             NavigationStack {

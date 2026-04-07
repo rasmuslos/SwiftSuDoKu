@@ -28,12 +28,12 @@ struct SolvedView: View {
             
             Group {
                 Text("solved.congratulations")
-                    .padding()
                 
                 Text("solved.congratulations.text")
                     .foregroundStyle(.secondary)
                     .multilineTextAlignment(.center)
             }
+            .padding(.horizontal, 20)
             .scaleEffect(animate ? 1 : 0)
             
             Spacer()
