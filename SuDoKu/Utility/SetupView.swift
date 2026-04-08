@@ -11,9 +11,6 @@ import Defaults
 struct SetupView: View {
     @Default(.setupComplete) var setupComplete
     
-    @Default(.allowMistakes) var allowMistakes
-    @Default(.suggestionStrength) var suggestionStrength
-    
     @State private var setupSheetPresented = false
     
     var body: some View {
@@ -47,22 +44,7 @@ struct SetupView: View {
         .sheet(isPresented: $setupSheetPresented) {
             NavigationStack {
                 Form {
-                    Section {
-                        Toggle("setup.mistakes", isOn: $allowMistakes)
-                    } footer: {
-                        Text("setup.mistakes.text")
-                    }
-                    
-                    Section {
-                        Picker("setup.suggestions", selection: $suggestionStrength) {
-                            ForEach(Board.SuggestionStrength.allCases, id: \.hashValue) { strength in
-                                Text(strength.name)
-                                    .tag(strength)
-                            }
-                        }
-                    } footer: {
-                        Text("setup.suggestions.text")
-                    }
+                    FormControls()
                     
                     Button {
                         setupSheetPresented = false
@@ -84,6 +66,30 @@ struct SetupView: View {
         .onChange(of: setupSheetPresented) {
             if setupSheetPresented == false {
                 setupComplete = true
+            }
+        }
+    }
+    
+    struct FormControls: View {
+        @Default(.allowMistakes) var allowMistakes
+        @Default(.suggestionStrength) var suggestionStrength
+        
+        var body: some View {
+            Section {
+                Toggle("setup.mistakes", isOn: $allowMistakes)
+            } footer: {
+                Text("setup.mistakes.text")
+            }
+            
+            Section {
+                Picker("setup.suggestions", selection: $suggestionStrength) {
+                    ForEach(Board.SuggestionStrength.allCases, id: \.hashValue) { strength in
+                        Text(strength.name)
+                            .tag(strength)
+                    }
+                }
+            } footer: {
+                Text("setup.suggestions.text")
             }
         }
     }

@@ -40,7 +40,7 @@ struct StatisticsSheet: View {
                 
                 Section {
                     Button {
-                        UIApplication.shared.open(URL(string: "https://github.com/rasmuslos/SuDoKu")!)
+                        UIApplication.shared.open(URL(string: "https://github.com/rasmuslos/SwiftSuDoKu")!)
                     } label: {
                         Text("statistics.github")
                     }
