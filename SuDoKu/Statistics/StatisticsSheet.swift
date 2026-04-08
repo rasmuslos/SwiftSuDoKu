@@ -23,6 +23,8 @@ struct StatisticsSheet: View {
     var body: some View {
         NavigationStack {
             List {
+                SetupView.FormControls()
+                
                 Text("attempts \(attempts)")
                 Text("clues \(clues)")
                 
@@ -81,8 +83,6 @@ struct StatisticsSheet: View {
             .navigationTitle("statistics.title")
             .navigationBarTitleDisplayMode(.inline)
         }
-        .presentationDetents([.medium, .large])
-        .presentationDragIndicator(.visible)
     }
 }
 

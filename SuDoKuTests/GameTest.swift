@@ -5,51 +5,59 @@
 //  Created by Rasmus Krämer on 15.02.24.
 //
 
-import XCTest
+import Testing
 import SuDoKu
 import Defaults
 
-final class GameTest: XCTestCase {
-    override func setUpWithError() throws {}
-    override func tearDownWithError() throws {}
-
+@Suite("Game tests")
+struct GameTests {
+    @Test
     func testValidInput() {
-        let game = Game.init(board: .init(size: .FourXFour, values: [
+        let game = Game(board: .init(size: .FourXFour, values: [
             nil, 2, 3, 4,
             3, 4, 1, 2,
             2, 3, 4, 1,
             4, 1, 2, 3,
         ]))
         
-        XCTAssert(game.input(number: 1, index: 0).success)
-        XCTAssertEqual(game.board.solved, 1)
+        #expect(game.input(number: 1, index: 0).success)
+        #expect(game.board.solved == 1)
     }
     
+    @Test
     func testInvalidInput() {
-        Defaults[.allowMistakes] = false
-        
-        let game = Game.init(board: .init(size: .FourXFour, values: [
-            nil, 2, 3, 4,
-            3, 4, 1, 2,
-            2, 3, 4, 1,
-            4, 1, 2, 3,
-        ]))
-        
-        XCTAssertFalse(game.input(number: 2, index: 0).success)
-        XCTAssertNotEqual(game.board.solved, 1)
+        withAllowMistakes(false) {
+            let game = Game(board: .init(size: .FourXFour, values: [
+                nil, 2, 3, 4,
+                3, 4, 1, 2,
+                2, 3, 4, 1,
+                4, 1, 2, 3,
+            ]))
+            
+            #expect(!game.input(number: 2, index: 0).success)
+            #expect(game.board.solved != 1)
+        }
     }
     
+    @Test
     func testInvalidAllowedInput() {
-        Defaults[.allowMistakes] = true
-        
-        let game = Game.init(board: .init(size: .FourXFour, values: [
-            nil, 2, 3, 4,
-            3, 4, 1, 2,
-            2, 3, 4, 1,
-            4, 1, 2, 3,
-        ]))
-        
-        XCTAssert(game.input(number: 2, index: 0).success)
-        XCTAssertEqual(game.board.solved, 1)
+        withAllowMistakes(true) {
+            let game = Game(board: .init(size: .FourXFour, values: [
+                nil, 2, 3, 4,
+                3, 4, 1, 2,
+                2, 3, 4, 1,
+                4, 1, 2, 3,
+            ]))
+            
+            #expect(game.input(number: 2, index: 0).success)
+            #expect(game.board.solved == 1)
+        }
     }
 }
+private func withAllowMistakes(_ value: Bool, _ body: () -> Void) {
+    let old = Defaults[.allowMistakes]
+    Defaults[.allowMistakes] = value
+    defer { Defaults[.allowMistakes] = old }
+    body()
+}
+
