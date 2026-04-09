@@ -11,6 +11,7 @@ import Defaults
 struct SolvedView: View {
     @Default(.difficulty) private var difficulty
     
+    let maxCombo: Int
     let playAgainCallback: () -> Void
     
     @State private var animate = false
@@ -32,6 +33,12 @@ struct SolvedView: View {
                 Text("solved.congratulations.text")
                     .foregroundStyle(.secondary)
                     .multilineTextAlignment(.center)
+                
+                if maxCombo >= 2 {
+                    Text("solved.maxCombo \(maxCombo)")
+                        .foregroundStyle(.orange)
+                        .padding(.top, 4)
+                }
             }
             .padding(.horizontal, 20)
             .scaleEffect(animate ? 1 : 0)
@@ -76,7 +83,7 @@ struct SolvedView: View {
 }
 
 #Preview {
-    SolvedView() {
+    SolvedView(maxCombo: 7) {
         print("Play again")
     }
 }

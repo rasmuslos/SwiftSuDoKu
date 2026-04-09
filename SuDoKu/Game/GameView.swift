@@ -21,6 +21,14 @@ struct GameView: View {
     @State private var blockUI = false
     @State private var selectedSpace: Int?
     
+    private var comboColor: Color {
+        switch game.combo {
+            case ..<5: .orange
+            case ..<10: .red
+            default: .purple
+        }
+    }
+    
     private var selectedSpaceProxy: Binding<Int?> {
         .init(get: { selectedSpace }, set: {
             if blockUI { return }
@@ -50,6 +58,16 @@ struct GameView: View {
             .font(.caption.smallCaps())
             .foregroundStyle(.secondary)
             
+            Group {
+                if game.combo >= 2 {
+                    Text("\(game.combo) combo")
+                        .font(.caption.smallCaps())
+                        .foregroundStyle(comboColor)
+                        .transition(.scale.combined(with: .opacity))
+                }
+            }
+            .animation(.spring, value: game.combo)
+            
             GridView(game: game, selectedSpace: selectedSpaceProxy, animation: $animation)
                 .offset(x: shake ? 30 : 0)
             
@@ -66,6 +84,9 @@ struct GameView: View {
         .navigationTitle("sudoku.title")
         .navigationBarTitleDisplayMode(.inline)
         .sensoryFeedback(.success, trigger: animation)
+        .sensoryFeedback(.impact(weight: .heavy), trigger: game.combo) { (_: Int, newCombo: Int) -> Bool in
+            newCombo == 3 || newCombo == 5 || (newCombo > 5 && newCombo % 5 == 0)
+        }
         .onChange(of: game.board.solved) {
             if game.board.solved >= 1 {
                 withAnimation {

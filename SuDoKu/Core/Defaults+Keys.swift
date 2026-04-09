@@ -28,6 +28,7 @@ public extension Defaults.Keys {
     
     static let correct = Key("correct", default: 0)
     static let mistakes = Key("mistakes", default: 0)
+    static let maxCombo = Key("maxCombo", default: 0)
     
     static let easySolved = Key("easySolved", default: 0)
     static let mediumSolved = Key("mediumSolved", default: 0)

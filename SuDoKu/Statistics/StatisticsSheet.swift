@@ -19,6 +19,7 @@ struct StatisticsSheet: View {
     
     @Default(.correct) private var correct
     @Default(.mistakes) private var mistakes
+    @Default(.maxCombo) private var maxCombo
     
     var body: some View {
         NavigationStack {
@@ -38,6 +39,9 @@ struct StatisticsSheet: View {
                 Section {
                     Text("correct \(correct)")
                     Text("mistakes \(mistakes)")
+                    if maxCombo >= 2 {
+                        Text("statistics.maxCombo \(maxCombo)")
+                    }
                 }
                 
                 Section {
@@ -64,6 +68,7 @@ struct StatisticsSheet: View {
                         
                         _correct.reset()
                         _mistakes.reset()
+                        _maxCombo.reset()
                     } label: {
                         Text("statistics.reset")
                     }

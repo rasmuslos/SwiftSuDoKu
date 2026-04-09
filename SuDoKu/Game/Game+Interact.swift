@@ -23,12 +23,20 @@ public extension Game {
         
         if valid {
             correct += 1
+            combo += 1
+            if combo > maxCombo {
+                maxCombo = combo
+                if eligibleForStatistics && combo > Defaults[.maxCombo] {
+                    Defaults[.maxCombo] = combo
+                }
+            }
             
             if eligibleForStatistics {
                 Defaults[.correct] += 1
             }
         } else {
             mistakes += 1
+            combo = 0
             
             if eligibleForStatistics {
                 Defaults[.mistakes] += 1
@@ -53,6 +61,7 @@ public extension Game {
     func clue() -> (Int, Int) {
         Defaults[.clues] += 1
         eligibleForStatistics = false
+        combo = 0
         
         return board.clue()
     }

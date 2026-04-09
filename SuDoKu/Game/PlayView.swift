@@ -27,13 +27,13 @@ struct PlayView: View {
                         GameView(game: game) {
                             Task {
                                 try? await Task.sleep(nanoseconds: 500_000_000)
-                                state = .finished(valid: game.board.valid)
+                                state = .finished(valid: game.board.valid, maxCombo: game.maxCombo)
                             }
                         }
                         .modifier(DebugCompleteModifier(state: $state))
-                    case .finished(let valid):
+                    case .finished(let valid, let maxCombo):
                         if valid {
-                            SolvedView() { state = .loading }
+                            SolvedView(maxCombo: maxCombo) { state = .loading }
                         } else {
                             FailedView() { state = .loading }
                         }
@@ -87,7 +87,7 @@ extension PlayView {
     enum GameState {
         case loading
         case ongoing(game: Game)
-        case finished(valid: Bool)
+        case finished(valid: Bool, maxCombo: Int)
     }
 }
 

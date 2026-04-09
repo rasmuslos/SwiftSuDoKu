@@ -16,6 +16,9 @@ public class Game {
     public var correct = 0
     public var mistakes = 0
     
+    public var combo = 0
+    public var maxCombo = 0
+    
     var didCountAttempt = false
     var eligibleForStatistics = true
     

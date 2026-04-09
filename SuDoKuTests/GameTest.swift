@@ -40,6 +40,60 @@ struct GameTests {
     }
     
     @Test
+    func testComboIncrementsOnCorrectInputs() {
+        let game = Game(board: .init(size: .FourXFour, values: [
+            nil, nil, 3, 4,
+            3, 4, 1, 2,
+            2, 3, 4, 1,
+            4, 1, 2, 3,
+        ]))
+        
+        #expect(game.combo == 0)
+        #expect(game.input(number: 1, index: 0).success)
+        #expect(game.combo == 1)
+        #expect(game.input(number: 2, index: 1).success)
+        #expect(game.combo == 2)
+        #expect(game.maxCombo == 2)
+    }
+    
+    @Test
+    func testComboResetsOnMistake() {
+        withAllowMistakes(false) {
+            let game = Game(board: .init(size: .FourXFour, values: [
+                nil, nil, 3, 4,
+                3, 4, 1, 2,
+                2, 3, 4, 1,
+                4, 1, 2, 3,
+            ]))
+            
+            #expect(game.input(number: 1, index: 0).success)
+            #expect(game.combo == 1)
+            #expect(!game.input(number: 3, index: 1).success)
+            #expect(game.combo == 0)
+            #expect(game.maxCombo == 1)
+        }
+    }
+    
+    @Test
+    func testMaxComboPreservedAfterReset() {
+        withAllowMistakes(false) {
+            let game = Game(board: .init(size: .FourXFour, values: [
+                nil, nil, nil, 4,
+                3, 4, 1, 2,
+                2, 3, 4, 1,
+                4, 1, 2, 3,
+            ]))
+            
+            #expect(game.input(number: 1, index: 0).success)
+            #expect(game.input(number: 2, index: 1).success)
+            #expect(game.combo == 2)
+            #expect(!game.input(number: 4, index: 2).success)
+            #expect(game.combo == 0)
+            #expect(game.maxCombo == 2)
+        }
+    }
+    
+    @Test
     func testInvalidAllowedInput() {
         withAllowMistakes(true) {
             let game = Game(board: .init(size: .FourXFour, values: [
