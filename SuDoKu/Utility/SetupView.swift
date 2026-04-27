@@ -31,13 +31,11 @@ struct SetupView: View {
             Spacer()
         }
         .safeAreaInset(edge: .bottom) {
-            Button {
+            Button("setup.continue", systemImage: "chevron.forward.dotted.chevron.forward") {
                 setupSheetPresented.toggle()
-            } label: {
-                Text("setup.continue")
-                    .frame(maxWidth: .infinity)
             }
-            .buttonStyle(.borderedProminent)
+            .buttonStyle(.glassProminent)
+            .buttonSizing(.flexible)
             .controlSize(.extraLarge)
             .padding(.horizontal, 20)
         }
