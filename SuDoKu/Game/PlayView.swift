@@ -55,7 +55,7 @@ extension PlayView {
         func body(content: Content) -> some View {
             content
                 .toolbar {
-                    ToolbarItem(placement: .topBarLeading) {
+                    ToolbarItem(placement: .topBarTrailing) {
                         Button {
                             createGameCallback()
                         } label: {
@@ -64,7 +64,7 @@ extension PlayView {
                         }
                     }
                     
-                    ToolbarItem(placement: .topBarLeading) {
+                    ToolbarItem(placement: .topBarTrailing) {
                         Menu {
                             ForEach(Board.Difficulty.allCases, id: \.hashValue) { difficulty in
                                 Button {
@@ -74,7 +74,7 @@ extension PlayView {
                                 }
                             }
                         } label: {
-                            Label("difficulty", systemImage: "command")
+                            Label("difficulty", systemImage: difficulty.icon)
                                 .labelStyle(.iconOnly)
                         }
                     }
@@ -91,15 +91,41 @@ extension PlayView {
     }
 }
 
+extension Board.Difficulty {
+    var icon: String {
+        switch self {
+            case .easy:
+                "dial.low.fill"
+            case .medium:
+                "dial.medium.fill"
+            case .hard:
+                "dial.high.fill"
+            case .extreme:
+                "medal.star.fill"
+        }
+    }
+}
+
 extension PlayView {
     struct DebugCompleteModifier: ViewModifier {
         @Default(.size) private var size
+        
+        @Default(.clues) private var clues
+        @Default(.attempts) private var attempts
+        
+        @Default(.easySolved) private var easySolved
+        @Default(.mediumSolved) private var mediumSolved
+        @Default(.hardSolved) private var hardSolved
+        @Default(.extremeSolved) private var extremeSolved
+        
+        @Default(.correct) private var correct
+        @Default(.mistakes) private var mistakes
         
         @Binding var state: GameState
         
         func body(content: Content) -> some View {
             content
-                #if DEBUG
+                #if DEBUG && true
                 .toolbar {
                     ToolbarItem(placement: .topBarLeading) {
                         Button {
@@ -107,6 +133,17 @@ extension PlayView {
                             game.board.values[0] = nil
                             
                             state = .ongoing(game: game)
+                            
+                            clues = 42
+                            attempts = 67
+                            
+                            easySolved = 12
+                            mediumSolved = 17
+                            hardSolved = 30
+                            extremeSolved = 8
+                            
+                            correct = 1234
+                            mistakes = 56
                         } label: {
                             Image(systemName: "bolt.fill")
                         }

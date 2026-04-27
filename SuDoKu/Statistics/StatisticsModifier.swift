@@ -13,11 +13,11 @@ struct StatisticsModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
             .toolbar {
-                ToolbarItem(placement: .topBarTrailing) {
+                ToolbarItem(placement: .topBarLeading) {
                     Button {
                         statisticsSheetPresented.toggle()
                     } label: {
-                        Label("statistics", systemImage: "medal")
+                        Label("statistics", systemImage: "trophy.fill")
                             .labelStyle(.iconOnly)
                     }
                 }

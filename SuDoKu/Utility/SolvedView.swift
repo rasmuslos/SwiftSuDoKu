@@ -14,18 +14,15 @@ struct SolvedView: View {
     let maxCombo: Int
     let playAgainCallback: () -> Void
     
-    @State private var animate = false
-    
     var body: some View {
         VStack {
             Spacer()
             
-            Image(systemName: "medal.fill")
+            Image(systemName: "trophy.fill")
                 .font(.system(size: 75))
                 .foregroundStyle(.accent)
                 .padding(.bottom, 40)
-                .rotationEffect(.degrees(animate ? 0 : -35))
-                .scaleEffect(animate ? 1 : 1.2)
+                .symbolEffect(.bounce, options: .nonRepeating)
             
             Group {
                 Text("solved.congratulations")
@@ -41,29 +38,19 @@ struct SolvedView: View {
                 }
             }
             .padding(.horizontal, 20)
-            .scaleEffect(animate ? 1 : 0)
             
             Spacer()
-            
-            Button {
-                playAgainCallback()
-            } label: {
-                Label("solved.prompt", systemImage: "")
-                    .padding()
-                    .frame(maxWidth: .infinity)
-                    .background(.accent.opacity(0.25))
-                    .foregroundStyle(.primary)
-                    .clipShape(RoundedRectangle(cornerRadius: 25))
-                    .padding(20)
-            }
         }
-        .padding(.vertical)
-        .ignoresSafeArea(edges: .bottom)
-        .onAppear {
-            withAnimation(.spring(duration: 0.5, bounce: 0.3, blendDuration: 0.2)) {
-                animate = true
+        .safeAreaInset(edge: .bottom) {
+            Button("solved.prompt", systemImage: "plus") {
+                playAgainCallback()
             }
-            
+            .buttonSizing(.flexible)
+            .controlSize(.extraLarge)
+            .buttonStyle(.glassProminent)
+            .padding(.horizontal, 20)
+        }
+        .onAppear {
             let key: Defaults.Key<Int>
             
             switch difficulty {
