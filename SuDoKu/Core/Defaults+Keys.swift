@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Defaults
 
 public extension Defaults.Keys {
     // MARK: Settings
@@ -19,19 +18,19 @@ public extension Defaults.Keys {
     static let size = Key<Board.Size>("size", default: .NineXNine)
     static let difficulty = Key<Board.Difficulty>("difficulty", default: .easy)
     
-    static let setupComplete = Key("setupComplete", default: false)
-    
+    static let setupComplete = Key<Bool>("setupComplete", default: false)
+
     // MARK: Statistics
-    
-    static let clues = Key("clues", default: 0)
-    static let attempts = Key("attempts", default: 0)
-    
-    static let correct = Key("correct", default: 0)
-    static let mistakes = Key("mistakes", default: 0)
-    static let maxCombo = Key("maxCombo", default: 0)
-    
-    static let easySolved = Key("easySolved", default: 0)
-    static let mediumSolved = Key("mediumSolved", default: 0)
-    static let hardSolved = Key("hardSolved", default: 0)
-    static let extremeSolved = Key("extremeSolved", default: 0)
+
+    static let clues = Key<Int>("clues", default: 0)
+    static let attempts = Key<Int>("attempts", default: 0)
+
+    static let correct = Key<Int>("correct", default: 0)
+    static let mistakes = Key<Int>("mistakes", default: 0)
+    static let maxCombo = Key<Int>("maxCombo", default: 0)
+
+    static let easySolved = Key<Int>("easySolved", default: 0)
+    static let mediumSolved = Key<Int>("mediumSolved", default: 0)
+    static let hardSolved = Key<Int>("hardSolved", default: 0)
+    static let extremeSolved = Key<Int>("extremeSolved", default: 0)
 }

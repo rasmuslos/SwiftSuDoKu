@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Defaults
 import SwiftUI
 
 public extension Board {

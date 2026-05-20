@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import Defaults
 
 extension GameView {
     struct ClueView: View {

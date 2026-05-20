@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import Defaults
 
 struct SolvedView: View {
     @Default(.difficulty) private var difficulty

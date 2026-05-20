@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import Defaults
 
 struct NumberView: View {
     @Default(.suggestionStrength) var suggestionStrength

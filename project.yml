@@ -1,0 +1,119 @@
+name: SuDoKu
+
+options:
+  bundleIdPrefix: io.rfk
+  deploymentTarget:
+    iOS: "26.0"
+  developmentLanguage: en
+  xcodeVersion: "26.0"
+  createIntermediateGroups: true
+  generateEmptyDirectories: true
+  groupSortPosition: top
+  minimumXcodeGenVersion: "2.45.0"
+  transitivelyLinkDependencies: true
+  defaultConfig: Release
+
+configs:
+  Debug: debug
+  Release: release
+
+settings:
+  base:
+    DEVELOPMENT_TEAM: N8AA4S3S96
+    SWIFT_VERSION: "6.0"
+    ENABLE_USER_SCRIPT_SANDBOXING: NO
+    LOCALIZATION_PREFERS_STRING_CATALOGS: YES
+    STRING_CATALOG_GENERATE_SYMBOLS: YES
+    ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS: YES
+
+targets:
+  SuDoKu:
+    type: application
+    platform: iOS
+    deploymentTarget: "26.0"
+    sources:
+      - path: SuDoKu
+        excludes:
+          - "Info.plist"
+          - "**/.DS_Store"
+      - path: SuDoKu.icon
+        type: "folder.iconcomposer.icon"
+        buildPhase: resources
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: io.rfk.sudoku
+        PRODUCT_NAME: $(TARGET_NAME)
+        MARKETING_VERSION: "1.1.1"
+        CURRENT_PROJECT_VERSION: DEVELOPMENT
+        TARGETED_DEVICE_FAMILY: "1"
+        SUPPORTED_PLATFORMS: "iphoneos iphonesimulator"
+        SUPPORTS_MACCATALYST: NO
+        SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD: NO
+        SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD: NO
+        ALLOW_TARGET_PLATFORM_SPECIALIZATION: YES
+        CODE_SIGN_STYLE: Automatic
+        ENABLE_PREVIEWS: YES
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_FILE: SuDoKu/Info.plist
+        INFOPLIST_KEY_CFBundleDisplayName: SuDoKu
+        INFOPLIST_KEY_LSApplicationCategoryType: "public.app-category.games"
+        INFOPLIST_KEY_UIApplicationSceneManifest_Generation: YES
+        INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents: YES
+        INFOPLIST_KEY_UILaunchScreen_Generation: YES
+        INFOPLIST_KEY_UISupportedInterfaceOrientations: UIInterfaceOrientationPortrait
+        INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad: "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown"
+        ASSETCATALOG_COMPILER_APPICON_NAME: SuDoKu
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+        SWIFT_EMIT_LOC_STRINGS: YES
+    postBuildScripts:
+      - name: Set CFBundleVersion from Git (Release)
+        script: |
+          if [ "${CONFIGURATION}" = "Release" ]; then
+              buildNumber=$(git rev-list --count HEAD)
+              /usr/libexec/PlistBuddy -c "Set :CFBundleVersion $buildNumber" "${TARGET_BUILD_DIR}/${INFOPLIST_PATH}"
+          fi
+        basedOnDependencyAnalysis: false
+        shell: /bin/sh
+
+  SuDoKuTests:
+    type: bundle.unit-test
+    platform: iOS
+    deploymentTarget: "26.0"
+    sources:
+      - path: SuDoKuTests
+        excludes:
+          - "**/.DS_Store"
+    dependencies:
+      - target: SuDoKu
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: io.rfk.SuDoKuTests
+        PRODUCT_NAME: $(TARGET_NAME)
+        BUNDLE_LOADER: $(TEST_HOST)
+        TEST_HOST: $(BUILT_PRODUCTS_DIR)/SuDoKu.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SuDoKu
+        CODE_SIGN_STYLE: Automatic
+        GENERATE_INFOPLIST_FILE: YES
+        SWIFT_APPROACHABLE_CONCURRENCY: YES
+        SWIFT_DEFAULT_ACTOR_ISOLATION: MainActor
+        SWIFT_EMIT_LOC_STRINGS: NO
+        TARGETED_DEVICE_FAMILY: "1,2"
+
+schemes:
+  SuDoKu:
+    build:
+      targets:
+        SuDoKu: all
+        SuDoKuTests: [test]
+    run:
+      config: Debug
+    test:
+      config: Debug
+      gatherCoverageData: true
+      targets:
+        - SuDoKuTests
+    profile:
+      config: Release
+    analyze:
+      config: Debug
+    archive:
+      config: Release

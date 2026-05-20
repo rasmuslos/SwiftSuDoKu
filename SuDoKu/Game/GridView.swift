@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import Defaults
 
 struct GridView: View {
     let game: Game

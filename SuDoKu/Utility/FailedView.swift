@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import Defaults
 
 struct FailedView: View {
     let playAgainCallback: () -> Void

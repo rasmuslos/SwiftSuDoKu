@@ -1,0 +1,33 @@
+# macOS
+.DS_Store
+
+# Xcode user data
+xcuserdata/
+*.xcuserstate
+*.xcuserdatad/
+
+# Xcode generated
+build/
+DerivedData/
+*.moved-aside
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# SwiftPM
+.swiftpm/
+.build/
+Package.resolved
+
+# XcodeGen — the .xcodeproj is generated from project.yml
+SuDoKu.xcodeproj/
+
+# CocoaPods (if ever added)
+Pods/
+
+# fastlane (if ever added)
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/test_output

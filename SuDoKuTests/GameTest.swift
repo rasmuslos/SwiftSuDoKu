@@ -7,7 +7,6 @@
 
 import Testing
 import SuDoKu
-import Defaults
 
 @Suite("Game tests")
 struct GameTests {

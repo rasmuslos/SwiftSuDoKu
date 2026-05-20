@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import Defaults
 
 struct PlayView: View {
     @Default(.size) private var size

@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import Defaults
 
 struct StatisticsSheet: View {
     @Default(.clues) private var clues

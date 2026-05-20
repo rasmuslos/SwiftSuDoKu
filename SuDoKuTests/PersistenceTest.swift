@@ -7,7 +7,6 @@
 
 import Testing
 import SuDoKu
-import Defaults
 
 @Suite("Persistence tests")
 struct PersistenceTests {

@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import Defaults
 
 struct GameView: View {
     @Default(.allowMistakes) private var allowMistakes
@@ -20,13 +19,9 @@ struct GameView: View {
     @State private var shake = false
     @State private var blockUI = false
     @State private var selectedSpace: Int?
-    
-    private var comboColor: Color {
-        switch game.combo {
-            case ..<5: .orange
-            case ..<10: .red
-            default: .purple
-        }
+
+    private var solvedPercent: String {
+        String(String(game.board.solved * 100).prefix(2))
     }
     
     private var selectedSpaceProxy: Binding<Int?> {
@@ -45,9 +40,7 @@ struct GameView: View {
                 
                 Spacer()
                 
-                Text(String(String(game.board.solved * 100).prefix(2)))
-                + Text(verbatim: "% - ")
-                + Text(difficulty.name)
+                Text("\(solvedPercent)% - \(Text(difficulty.name))")
                 
                 Spacer()
                 
@@ -58,18 +51,13 @@ struct GameView: View {
             .font(.caption.smallCaps())
             .foregroundStyle(.secondary)
             
-            Group {
-                if game.combo >= 2 {
-                    Text("\(game.combo) combo")
-                        .font(.caption.smallCaps())
-                        .foregroundStyle(comboColor)
-                        .transition(.scale.combined(with: .opacity))
-                }
-            }
-            .animation(.spring, value: game.combo)
-            
             GridView(game: game, selectedSpace: selectedSpaceProxy, animation: $animation)
                 .offset(x: shake ? 30 : 0)
+            
+            
+            if game.combo >= 2 {
+                ComboView(combo: game.combo)
+            }
             
             Spacer(minLength: 40)
             

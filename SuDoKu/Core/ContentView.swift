@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import Defaults
 
 struct ContentView: View {
     @Default(.setupComplete) var setupComplete

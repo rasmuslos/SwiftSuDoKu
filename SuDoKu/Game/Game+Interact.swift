@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Defaults
 import SwiftUI
 
 public extension Game {
@@ -61,7 +60,7 @@ public extension Game {
     func clue() -> (Int, Int) {
         Defaults[.clues] += 1
         eligibleForStatistics = false
-        combo = 0
+//        combo = 0
         
         return board.clue()
     }
